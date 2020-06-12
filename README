@@ -1,0 +1,20 @@
+aov-imap-fetch
+
+Fetches the content of an IMAP4 server. This is NOT A SYNC TOOL
+nor is expected to be. The content of the server is not touched;
+messages that are no longer in the server are moved to a special
+Maildir folder aptly named 'no-longer-in-the-server'.
+
+If the same email (addressed by its Message-Id or, if not present,
+its Date) is present in more than one Maildir folder, hard links
+are used instead of copies.
+
+Folders are intentionally processed in a non-deterministic order
+to alleviate data loss if (when) Gmail breaks the connection
+whenever their connection quotas mandate.
+
+No state is stored anywhere (other than the email messages).
+
+This software is released into the public domain.
+
+ttcdt <dev@triptico.com>
